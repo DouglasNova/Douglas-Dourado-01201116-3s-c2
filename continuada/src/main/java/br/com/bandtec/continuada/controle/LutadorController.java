@@ -28,6 +28,11 @@ public class LutadorController {
         return ResponseEntity.status(200).body(repository.findByVivoTrue());
     }
 
+    @GetMapping("/mortos")
+    public ResponseEntity getmortos(){
+        return ResponseEntity.status(200).body(repository.findByVivoFalse());
+    }
+
     @PostMapping("/{id}/concentrar")
     public ResponseEntity postLutador(@PathVariable int id){
         if (repository.existsById(id)){
